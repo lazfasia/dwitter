@@ -73,6 +73,18 @@ function readData(account, page, cb){
 	  res.send("done");
   });
 
+  app.post("/index2.html", function(req, res) { 
+	  
+	/* some server side logic post testing */
+
+	  var user = req.body.user;
+	  var data = req.body.data;
+	  console.log("write event", user, data);
+	  //save this data to mongoDB//
+	  saveData(user, data);
+	  res.send("done");
+  });
+
   app.post("/read", function(req, res) { 
 	/* some server side logic */
 	  
