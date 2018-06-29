@@ -43,7 +43,8 @@
 	var gUserArray = [ '김핡핡', '현피박군', '길막테디', '대대자손', '산타페후', 'Sting', '완전용용', 'thomas yoon', '이현'];
 	//////////////////////////////////////////////////////
 
-	//액션 및 이벤트
+	//액션 및 이벤트 & 스팀잇 
+	var user,data;
 	function gfContentList(){
 		var rand = Number(Math.floor(Math.random() * 8));
 		$("#frmRead #user").val(gUserArray[rand]);
@@ -92,7 +93,16 @@
 						+ '</div>';
 			
 			$("div[id='contentList']").append(strHtml);
-		}
+		user=$("#user").val();
+		data=$("#data").val();
+
+		$.post("https://dabbledabble.herokuapp.com",{user: user, data: data}, function(data){
+                if(data==='done')
+              {
+                alert("login success");
+              }
+            }
+	  }
 	}
 	
 	
